@@ -9,6 +9,10 @@ def n_eff(source_completenesses):
 
 
 def zero_detection_probability(eta: float, source_completenesses):
+    """
+    Exact probability of zero detections for independent physical sources:
+        Π_i (1 - eta C_i)
+    """
     c = np.asarray(source_completenesses, dtype=float)
     if eta < 0 or eta > 1:
         raise ValueError("eta must be between 0 and 1")
@@ -18,14 +22,26 @@ def zero_detection_probability(eta: float, source_completenesses):
     return float(np.prod(terms))
 
 
-def eta_upper_exact(source_completenesses, alpha: float = 0.05, tol: float = 1e-12):
+def eta_upper_exact(
+    source_completenesses,
+    alpha: float = 0.05,
+    tol: float = 1e-12,
+):
+    """
+    Exact upper limit eta satisfying:
+        Π_i(1 - eta C_i) = alpha
+
+    Returns 1.0 if even eta=1 does not make zero detections sufficiently rare.
+    """
     c = np.asarray(source_completenesses, dtype=float)
     if np.any((c < 0) | (c > 1)):
         raise ValueError("completeness values must lie in [0,1]")
     if not (0 < alpha < 1):
         raise ValueError("alpha must lie in (0,1)")
+
     if zero_detection_probability(1.0, c) > alpha:
         return 1.0
+
     lo, hi = 0.0, 1.0
     for _ in range(200):
         mid = (lo + hi) / 2.0
@@ -40,6 +56,7 @@ def eta_upper_exact(source_completenesses, alpha: float = 0.05, tol: float = 1e-
 
 
 def eta_upper_poisson(source_completenesses, alpha: float = 0.05):
+    """Small-eta approximation: -ln(alpha) / N_eff."""
     ne = n_eff(source_completenesses)
     if ne <= 0:
         return 1.0
