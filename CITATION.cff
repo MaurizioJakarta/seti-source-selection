@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software or its derived data products, please cite the archived release and the associated paper."
+title: "SETI Selection Function"
+type: software
+authors:
+  - family-names: "Massaro"
+    given-names: "Maurizio"
+    orcid: "https://orcid.org/0009-0000-4967-5015"
+    affiliation: "Independent Researcher"
+version: "1.19"
+date-released: "2026-09-08"
+repository-code: "https://github.com/MaurizioJakarta/seti-source-selection"
+abstract: >-
+  Reproducibility package for source-level observational selection functions
+  in narrowband radio SETI, including exact cadence geometry, catalog-source
+  versus physical-system occupancy, chromatic receiver-beam models, beaming,
+  propagation diagnostics, cross-survey reduction tests, and heterogeneous
+  Bernoulli population inference.
+keywords:
+  - SETI
+  - technosignatures
+  - radio astronomy
+  - selection functions
+  - survey completeness
+  - population inference
