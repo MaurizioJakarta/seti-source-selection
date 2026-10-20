@@ -1,0 +1,31 @@
+SETI Selection Function v1.19 release
+
+Scientific purpose: harden the v1.18 framework against the principal issues
+identified in an adversarial referee simulation without changing the core
+source-level selection-function formalism.
+
+Major changes
+-------------
+1. Catalog-source versus physical-system occupancy is explicit. Five
+   literature-confirmed bound pairs are collapsed in the central Margot
+   system-level interpretation: 47 Gaia sources -> 42 physical systems.
+2. GBT main-beam chromaticity is implemented with FWHM proportional to 1/nu.
+3. Survey-global nuisance variables can be marginalized at likelihood level.
+4. Margot 0.94 injected-hit recovery is represented with its S/N~20 calibration
+   context and is not described as a measured joint multi-scan event efficiency.
+5. Price repeated cadences support phase-coherent and independent phase-reset
+   beacon models. The reported quantity is three-ON temporal eligibility, not
+   full event acceptance.
+6. Physical-system static and fixed-power beaming thresholds are recalculated.
+
+Headline central benchmarks
+---------------------------
+- Margot correlated weak-ISS catalog-source eta95: 0.0719612147
+- Margot 42-system equal-component eta95: 0.0804514325
+- 42-system fixed-power orientation floor (marginal independence): 32.3698839 deg
+- 42-system one-sided minimum P_tx: 4.6445400699e11 W
+- Price/Ma P=1 h, q=0.5 N_eff,ON: coherent 30.942778; phase-reset 31.008324
+- Price/Ma P=24 h, q=0.5 N_eff,ON: coherent 386.278738; phase-reset 402.786140
+
+Validation: 95/95 pytest tests pass.
+Release QA: 31/31 release headline consistency checks pass against paper v0.6.
