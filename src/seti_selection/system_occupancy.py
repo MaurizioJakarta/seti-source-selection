@@ -43,6 +43,7 @@ def build_system_labels(source_ids: Sequence[int], confirmed_bound_pairs: Iterab
     def union(a: int, b: int) -> None:
         ra, rb = find(int(a)), find(int(b))
         if ra != rb:
+            # Canonicalize to the smaller source id for reproducible labels.
             lo, hi = min(ra, rb), max(ra, rb)
             parent[hi] = lo
 
@@ -52,6 +53,7 @@ def build_system_labels(source_ids: Sequence[int], confirmed_bound_pairs: Iterab
     groups: dict[int, list[int]] = defaultdict(list)
     for x in ids:
         groups[find(x)].append(x)
+    # A second pass handles path compression after unions whose root changed.
     groups = defaultdict(list)
     for x in ids:
         groups[find(x)].append(x)
@@ -72,7 +74,21 @@ def collapse_source_completeness_to_systems(
     component_model: str = "equal",
     component_weights: Mapping[int, float] | None = None,
 ):
-    """Collapse catalog-source completenesses to physical-system completenesses."""
+    """Collapse catalog-source completenesses to physical-system completenesses.
+
+    Parameters
+    ----------
+    component_model : {'equal', 'minimum', 'maximum', 'weighted'}
+        Conditional model for the component hosting a single system-level
+        transmitter. ``minimum`` and ``maximum`` give a prior-free location
+        bracket. ``equal`` is a transparent sensitivity benchmark. ``weighted``
+        requires ``component_weights`` keyed by source id.
+
+    Returns
+    -------
+    tuple[list[str], ndarray]
+        Sorted physical-system labels and their completenesses.
+    """
     ids = [int(x) for x in source_ids]
     c = _validate_completeness(source_completenesses)
     if len(ids) != c.size:
