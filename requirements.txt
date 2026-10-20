@@ -1,5 +1,8 @@
-numpy
-pandas
-scipy
-matplotlib
-pytest
+# Known-good environment validated for SETI Selection Function v1.19
+# Final Zenodo QA: 2026-10-20
+# Python 3.13.5
+numpy==2.3.5
+pandas==2.2.3
+scipy==1.17.0
+matplotlib==3.10.8
+pytest==9.0.2
