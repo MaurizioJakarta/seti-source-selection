@@ -1,5 +1,7 @@
 # SETI Selection Function v1.19
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23494931.svg)](https://doi.org/10.5281/zenodo.23494931)
+
 **Author:** Maurizio Massaro  
 **Affiliation:** Independent Researcher  
 **ORCID:** https://orcid.org/0009-0000-4967-5015  
@@ -60,14 +62,13 @@ derived products needed to inspect and reproduce the analysis workflow.
 Large generated selection surfaces and the complete frozen reproducibility
 bundle are intended for the archival Zenodo release associated with v1.19.
 
-No software license has yet been selected. Until a license is added, copyright
-remains with the author and reuse rights are not granted beyond those provided
-by applicable law.
+The original software in this repository is released under the **BSD 3-Clause License**.
+See `LICENSE` for the full license text.
 
 ## Citation
 
-Citation metadata are provided in `CITATION.cff`. The archival DOI will be
-added after the Zenodo v1.19 record is created.
+Citation metadata are provided in `CITATION.cff`. The frozen archival v1.19
+reproducibility package is available on Zenodo at **doi:10.5281/zenodo.23494931**.
 
 ## Tests
 
