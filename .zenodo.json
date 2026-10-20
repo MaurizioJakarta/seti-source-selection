@@ -1,0 +1,22 @@
+{
+  "title": "SETI Selection Function v1.19",
+  "upload_type": "software",
+  "description": "Reproducibility package for source-level observational selection functions in narrowband radio SETI. The release includes exact cadence geometry, physical-system grouping, chromatic receiver-beam models, transmitter beaming, propagation diagnostics, cross-survey reduction tests, heterogeneous Bernoulli population inference, derived data products, figures, and automated tests.",
+  "creators": [
+    {
+      "name": "Massaro, Maurizio",
+      "affiliation": "Independent Researcher",
+      "orcid": "0009-0000-4967-5015"
+    }
+  ],
+  "version": "1.19",
+  "keywords": [
+    "SETI",
+    "technosignatures",
+    "radio astronomy",
+    "selection functions",
+    "survey completeness",
+    "population inference"
+  ],
+  "access_right": "open"
+}
