@@ -18,5 +18,6 @@
     "survey completeness",
     "population inference"
   ],
-  "access_right": "open"
+  "access_right": "open",
+  "license": "bsd-3-clause"
 }
