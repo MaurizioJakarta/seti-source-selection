@@ -1,0 +1,77 @@
+{
+  "instrument": {
+    "fine_channel_hz": 2.79,
+    "time_resolution_s": 18.25,
+    "pipeline_noise_scale_kappa": 3.25,
+    "zero_drift_single_bin_extra_loss": 2.0
+  },
+  "parkes_ababab_template": {
+    "scan_duration_s": 300.0,
+    "transition_overhead_s": 30.0,
+    "on_scan_indices": [0,2,4]
+  },
+  "benchmark": {
+    "duty_cycle": 0.1,
+    "eirp_over_nominal": 30.0,
+    "drift_hz_s": 0.05,
+    "phase_samples": 40000,
+    "subbin_samples": 20001
+  },
+  "gbt_lband_margot2023": {
+    "fwhm_arcmin": 8.4,
+    "selection_radius_arcmin": 4.2,
+    "scan_duration_s": 150.0,
+    "pipeline_efficiency": 0.94,
+    "fiducial_eirp_w": 13500000000000.0,
+    "fiducial_distance_pc": 100.0,
+    "science_freq_min_mhz": 1150.0,
+    "science_freq_max_mhz": 1730.0,
+    "recorded_freq_min_mhz": 1100.0,
+    "recorded_freq_max_mhz": 1900.0,
+    "eta_scan_injection_recovery": 0.94,
+    "eta_pair_frechet_lower": 0.88,
+    "eta_pair_independent": 0.8836,
+    "eta_pair_fully_correlated_upper": 0.94,
+    "drift_max_abs_hz_s": 8.86,
+    "drift_trial_count": 1023,
+    "drift_step_hz_s": 0.0173,
+    "scans_per_target": 2,
+    "scan_pattern": "A-B-A-B",
+    "pair_detection_rule": "both source scans",
+    "aggregate_mode_drift_policy": "hard coverage only; do not multiply a separate theoretical drift efficiency when eta_scan injection recovery is used"
+  },
+  "population_v1_9": {
+    "interpretation": "parameterized selection model; no empirical extraterrestrial population prior is assumed",
+    "static_beam_model": "random-orientation circular top-hat",
+    "scanner_model": "uniform raster over specified solid angle",
+    "directivity_model": "ideal equivalent top-hat D=4pi/Omega_b",
+    "default_cross_epoch_error_model": "independent",
+    "arecibo_engineering_benchmark": {
+      "transmitter_power_w": 1000000.0,
+      "eirp_w": 20000000000000.0,
+      "source": "NASA PDS Arecibo Planetary Radar Transmitter context record"
+    },
+    "log_haystack_benchmark_box": {
+      "period_min_s": 300.0,
+      "period_max_s": 315576000.0,
+      "duty_min": 0.005,
+      "duty_max": 1.0,
+      "eirp_min_w": 1000000000000.0,
+      "eirp_max_w": 1000000000000000.0,
+      "measure": "uniform in ln P, ln q, ln E; metric only, not a population prior"
+    }
+  },
+  "frequency_bandwidth_v1_10": {
+    "science_freq_min_hz": 1150000000.0,
+    "science_freq_max_hz": 1730000000.0,
+    "notch_min_hz": 1200000000.0,
+    "notch_max_hz": 1341200000.0,
+    "usable_intervals_hz": [[1150000000.0,1200000000.0],[1341200000.0,1730000000.0]],
+    "usable_width_hz": 438800000.0,
+    "ucla_channel_hz_approx": 3.0,
+    "frequency_model": "hard support plus aggregate injection recovery; frequency-resolved eta_P(nu) unavailable",
+    "bandwidth_model": "injections calibrate unresolved coherent chirps only; exploratory flat-top single-bin dilution uses min(1,3Hz/B_tx)",
+    "houston_revised_haystack_frequency_bounds_hz": [10000000.0,115000000000.0],
+    "houston_revised_haystack_bandwidth_bounds_hz": [1.0,20000000.0]
+  }
+}
